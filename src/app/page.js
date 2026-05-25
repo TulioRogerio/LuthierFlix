@@ -1,7 +1,12 @@
+import VideosPage from "./videos/page";
+import MusicsPage from "./musics/page";
+
 export default function Home() {
   return (
-    <div>
+    <>
       <h2>Início</h2>
-    </div>
+      <VideosPage />
+      <MusicsPage />
+    </>
   );
 }
