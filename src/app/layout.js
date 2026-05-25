@@ -1,6 +1,8 @@
 import Link from "next/link";
 import styles from "./layout.module.css";
 import "./globals.css";
+import "./theme.css";
+
 
 export const metadata = {
   title: "LuthierFlix",
@@ -9,7 +11,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pt-br">
+    <html lang="pt-br" data-theme="light">
       <body className={styles.body}>
         <header className={styles.header}>
           <h1><Link href="/">LuthierFlix</Link></h1>
