@@ -5,21 +5,15 @@ import { createContext, useState, useEffect } from "react";
 export const ThemeContext = createContext({});
 
 export function ThemeProvider({ children }) {
-    const [themeLight, setThemeLight] = useState(() => {
-        const themeName =
-            localStorage.getItem('theme') ||
-            document.documentElement.getAttribute('data-theme') ||
-            'dark';
-        return themeName === 'light';
-    });
+    const [themeLight, setThemeLight] = useState(false);
 
-    const [themeLight, setThemeLight] = useState(() => {
+    useEffect(() => {
         const themeName =
             localStorage.getItem('theme') ??
             document.documentElement.getAttribute('data-theme') ??
             'dark';
-        return themeName === 'light';
-    });
+        setThemeLight(themeLight === 'light')
+    }, []);
 
     useEffect(() => {
         const themename = themeLight ? 'light' : 'dark';
