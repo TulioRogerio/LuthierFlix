@@ -7,6 +7,14 @@ export const ThemeContext = createContext({});
 export function ThemeProvider({ children }) {
     const [themeLight, setThemeLight] = useState(() => {
         const themeName =
+            localStorage.getItem('theme') ||
+            document.documentElement.getAttribute('data-theme') ||
+            'dark';
+        return themeName === 'light';
+    });
+
+    const [themeLight, setThemeLight] = useState(() => {
+        const themeName =
             localStorage.getItem('theme') ??
             document.documentElement.getAttribute('data-theme') ??
             'dark';
