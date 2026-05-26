@@ -1,21 +1,14 @@
-// Link é o componente do Next.js para navegação client-side (sem recarregar a página)
-import Link from "next/link";
-// CSS Modules: estilos escopados apenas para este layout
-import styles from "./layout.module.css";
-// CSS globais aplicados a toda a aplicação
-import "./globals.css";
-import "./theme.css";
-// "@/..." é um alias configurado (geralmente em jsconfig.json) que aponta para a pasta src/
-import ThemeToggle from "@/components/ThemeToggle";
+import Link from "next/link";                                     // Link é o componente do Next.js para navegação client-side (sem recarregar a página)
+import styles from "./layout.module.css";                         // CSS Modules: estilos escopados apenas para este layout
+import "./globals.css";                                           // CSS globais aplicados a toda a aplicação
+import "./theme.css";                                             // CSS globais aplicados a toda a aplicação
+import ThemeToggle from "@/components/ThemeToggle";               // Componente para alternar entre tema claro e escuro
 import { ThemeProvider } from "@/contexts/ThemeContext";
 
-// Metadados da página — o Next.js usa isso para gerar as tags <title> e <meta> no <head>
-export const metadata = {
+export const metadata = {                                         // Metadados da página — o Next.js usa isso para gerar as tags <title> e <meta> no <head>
   title: "LuthierFlix",
   description: "Onde a arte encontra a música",
 };
-
-// Layout raiz: envolve TODAS as páginas. O Next.js injeta o conteúdo da rota atual em "children"
 export default function RootLayout({ children }) {
   return (
     // ThemeProvider envolve toda a árvore para que qualquer componente possa acessar o tema via Context
